@@ -1,0 +1,2 @@
+module StarPostsHelper
+end
