@@ -1,0 +1,24 @@
+{
+  "name": "gitstar",
+  "version": "0.0.1",
+  "authors": [
+    "Kingsley Kelly <kingsley.kelly@gmail.com>"
+  ],
+  "description": "A home for starring git",
+  "keywords": [
+    "git"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.0",
+    "angular-motion": "~0.3.2"
+  }
+}

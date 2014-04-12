@@ -1,6 +1,4 @@
-var App = angular.module("gitStar", ['ngResource']);
+var App = angular.module("gitStar", ['ngResource', 'mgcrea.ngStrap']);
 App.factory('StarPosts', function($resource) {
-  var x = $resource('/stars').query();
-  console.log(x);
-  return x;
+  return $resource('/stars').query();
 })

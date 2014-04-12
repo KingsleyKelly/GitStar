@@ -1,9 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
 
+    </div>
+    <div class="col-md-10">
+      <div ng-controller="starPostController">
+        <input ng-model="name_filter" class="form-control" placeholder="Search for names here!">
 
-  <div ng-controller="starPostController">
-    <input ng-model="name_filter">
-    <div ng-repeat="star in stars | filter:name_filter">
-      <div>{{ star.name }}</div>
-      <div>{{ star.star }}</div>
+        <div class="col-md-6" ng-repeat="star in stars | filter:name_filter">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
+            <div><h3>{{ star.name }}</h3></div>
+            <div>{{ star.star }}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>

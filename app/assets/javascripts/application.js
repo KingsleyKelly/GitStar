@@ -15,4 +15,7 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
+//= require bootstrap/dist/js/bootstrap
+//= require angular-strap/dist/angular-strap
+//= require angular-strap/dist/angular-strap-tpl
 //= require_tree .

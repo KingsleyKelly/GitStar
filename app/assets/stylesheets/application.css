@@ -9,5 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap/dist/css/bootstrap
+ *= require angular-motion/dist/angular-motion
  *= require_tree .
  */
