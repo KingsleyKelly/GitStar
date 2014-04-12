@@ -1,2 +1,9 @@
-<div ng-controller="starPostController">
-</div>
+
+
+  <div ng-controller="starPostController">
+    <input ng-model="name_filter">
+    <div ng-repeat="star in stars | filter:name_filter">
+      <div>{{ star.name }}</div>
+      <div>{{ star.star }}</div>
+    </div>
+  </div>
