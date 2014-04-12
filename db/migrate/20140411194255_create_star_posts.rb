@@ -3,7 +3,10 @@ class CreateStarPosts < ActiveRecord::Migration
     create_table :star_posts do |t|
       t.integer :star
       t.string :name
-
+      t.string :url
+      t.string :avatar
+      t.date :updated_at
+      t.string :language
       t.timestamps
     end
   end

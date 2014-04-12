@@ -18,4 +18,7 @@
 //= require bootstrap/dist/js/bootstrap
 //= require angular-strap/dist/angular-strap
 //= require angular-strap/dist/angular-strap-tpl
+//= require angular-strap/src/helpers/dimensions
+//= require angular-strap/src/helpers/parse-options
+//= require momentjs/moment
 //= require_tree .

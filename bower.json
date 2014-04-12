@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.0.0",
-    "angular-motion": "~0.3.2"
+    "angular-motion": "~0.3.2",
+    "momentjs": "~2.5.1"
   }
 }

@@ -16,8 +16,11 @@ ActiveRecord::Schema.define(version: 20140411194255) do
   create_table "star_posts", force: true do |t|
     t.integer  "star"
     t.string   "name"
-    t.datetime "created_at"
+    t.string   "url"
+    t.string   "avatar"
     t.datetime "updated_at"
+    t.string   "language"
+    t.datetime "created_at"
   end
 
 end
