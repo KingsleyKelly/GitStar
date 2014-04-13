@@ -20,5 +20,6 @@
 //= require angular-strap/dist/angular-strap-tpl
 //= require angular-strap/src/helpers/dimensions
 //= require angular-strap/src/helpers/parse-options
+//= require angular-animate/angular-animate
 //= require momentjs/moment
 //= require_tree .
