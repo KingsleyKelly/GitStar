@@ -1,14 +1,36 @@
+require 'client'
+
 namespace :tasks do
-  task :import_stars => :environment do
-    f = File.read('stars.json')
-    f = JSON.parse(f)
-    f.each{|x|
-      StarPost.create!(name: x["name"],
-                       star: x["stargazers_count"],
-                       url:  x["html_url"],
-                       avatar: x["owner"]["avatar_url"],
-                       updated_at: x['updated_at'],
-                       language: x['language'])
-    }
+
+
+  task :make_10_star_posts => :environment do
+    include Client
+    stars = starred(10)
+    stars.each do |star|
+    StarPost.create!(name: star["name"],
+                     star: star["stargazers_count"],
+                     url:  star["html_url"],
+                     avatar: star["owner"]["avatar_url"],
+                     updated_at: star['updated_at'],
+                     language: star['language'],
+                     likes: combined_stars_for_repo(star))
+    end
+  end
+
+  task :make_user_star_posts => :environment do
+    include Client
+    stars = all_starred('lyonsv')
+    stars.each do |star|
+    puts "NEW POST #{star["name"]}"
+    time = Time.now
+    StarPost.create!(name: star["name"],
+                     star: star["stargazers_count"],
+                     url:  star["html_url"],
+                     avatar: star["owner"]["avatar_url"],
+                     updated_at: star['updated_at'],
+                     language: star['language'],
+                     likes: combined_stars_for_repo(star))
+    puts Time.now - time
+    end
   end
 end

@@ -1,6 +1,9 @@
 GitstarAng::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :star_posts
+  # get '/stars/:id' => 'star_posts#stars'
   get '/stars' => 'star_posts#stars'
+  root 'star_posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,12 @@
+<% unless current_user %>
+  <%= link_to 'Sign in with Github', user_omniauth_authorize_path(:github) %>
+<% else %>
+  <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+<% end %>
+<div ng-cloak ng-controller="starPostController" class="container">
+  <div class="row">
+    <input ng-model="name_filter" class="form-control" placeholder="Search for names here!" autofocus="autofocus">
+    <div ng-include="star.html">
+    </div>
+  </div>
+</div>

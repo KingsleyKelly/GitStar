@@ -7,6 +7,7 @@ class CreateStarPosts < ActiveRecord::Migration
       t.string :avatar
       t.date :updated_at
       t.string :language
+      t.string :likes, array: true
       t.timestamps
     end
   end
