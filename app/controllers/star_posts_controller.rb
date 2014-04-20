@@ -2,7 +2,8 @@ class StarPostsController < ApplicationController
 
 
   def stars
-    render :json => StarPost.all
+    user = current_user
+    render :json => user.star_posts
 
   end
 

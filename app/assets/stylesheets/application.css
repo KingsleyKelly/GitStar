@@ -13,3 +13,10 @@
  *= require angular-motion/dist/angular-motion
  *= require_tree .
  */
+.top-buffer { margin-top:50px; }
+
+.gold-color{ color : rgba(253, 206, 16, 0.46);}
+
+.grey{ color : rgba(190, 186, 169, 0.46);}
+
+.repo{ height: 500px;}

@@ -8,47 +8,46 @@
     <input ng-model="name_filter" class="form-control" placeholder="Search for names here!" autofocus="autofocus">
 
 
-    <div ng-include="star.html">
-      <div class="col-md-4">
 
-      </div>
-      <div class="col-md-10">
-        <div >
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-10">
+      <div >
 
 
-          <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | orderBy : name | filter : {name : name_filter}" ng-animate='animate'>
-            <div class="col-md-3">
+        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | orderBy : name | filter : {name : name_filter}" ng-animate='animate'>
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-9" ng-style='{"border-left" :"2px solid " + backColor(star.language)}'>
+            <div class="col-md-6">
+              <img height="100" width="100" src={{star.avatar}} class="img-circle"></img>
             </div>
-            <div class="col-md-9" ng-style='{"border-left" :"2px solid " + backColor(star.language)}'>
-              <div class="col-md-6">
-                <img height="100" width="100" src={{star.avatar}} class="img-circle"></img>
-              </div>
 
-              <div class="col-md-6">
+            <div class="col-md-6">
 
-                <div><a target="_blank" href="{{ star.url }}"><h3>{{ star.name }}</h3></a></div>
-                <div><span class="gold-color glyphicon glyphicon-star"></span> {{ star.star }}</div>
-                <div><span class="grey glyphicon glyphicon-time"></span> {{last_update(star)}}</div>
-                <div><span class="grey glyphicon glyphicon-comment"></span> {{star.language}}</div>
-                </br>
+              <div><a target="_blank" href="{{ star.url }}"><h3>{{ star.name }}</h3></a></div>
+              <div><span class="gold-color glyphicon glyphicon-star"></span> {{ star.star }}</div>
+              <div><span class="grey glyphicon glyphicon-time"></span> {{last_update(star)}}</div>
+              <div><span class="grey glyphicon glyphicon-comment"></span> {{star.language}}</div>
+              </br>
 
-              </div>
+            </div>
 
 
-              <div class="col-md-12">
-                <div>This repo <span class="grey glyphicon glyphicon-heart"></span>s</div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)][0]}}">{{star.likes[((currentPage-1)*10)][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+1][0]}}">{{star.likes[((currentPage-1)*10)+1][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+2][0]}}">{{star.likes[((currentPage-1)*10)+2][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+3][0]}}">{{star.likes[((currentPage-1)*10)+3][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+4][0]}}">{{star.likes[((currentPage-1)*10)+4][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+5][0]}}">{{star.likes[((currentPage-1)*10)+5][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+6][0]}}">{{star.likes[((currentPage-1)*10)+6][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+7][0]}}">{{star.likes[((currentPage-1)*10)+7][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+8][0]}}">{{star.likes[((currentPage-1)*10)+8][0]}}</a></div>
-                  <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+9][0]}}">{{star.likes[((currentPage-1)*10)+9][0]}}</a></div>
-                  <pager total-items="totalItems" page="currentPage"></pager>
-              </div>
+            <div class="col-md-12">
+              <div>This repo <span class="grey glyphicon glyphicon-heart"></span>s</div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)][0]}}">{{star.likes[((currentPage-1)*10)][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+1][0]}}">{{star.likes[((currentPage-1)*10)+1][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+2][0]}}">{{star.likes[((currentPage-1)*10)+2][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+3][0]}}">{{star.likes[((currentPage-1)*10)+3][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+4][0]}}">{{star.likes[((currentPage-1)*10)+4][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+5][0]}}">{{star.likes[((currentPage-1)*10)+5][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+6][0]}}">{{star.likes[((currentPage-1)*10)+6][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+7][0]}}">{{star.likes[((currentPage-1)*10)+7][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+8][0]}}">{{star.likes[((currentPage-1)*10)+8][0]}}</a></div>
+                <div><a target="_blank" href="https://github.com/{{star.likes[((currentPage-1)*10)+9][0]}}">{{star.likes[((currentPage-1)*10)+9][0]}}</a></div>
+                <pager total-items="totalItems" page="currentPage"></pager>
             </div>
           </div>
         </div>

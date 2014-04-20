@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
+gem 'delayed_job_active_record'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -19,7 +19,7 @@ gem 'therubyracer'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem "awesome_print"
-
+gem "oj"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'less-rails'
@@ -33,7 +33,7 @@ gem 'omniauth-github'
 gem 'dotenv-rails', :groups => [:development, :test]
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-gem 'faraday-http-cache'
+# gem 'faraday-http-cache'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

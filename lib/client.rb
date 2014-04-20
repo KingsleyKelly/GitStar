@@ -7,22 +7,24 @@ module Client
   end
 
   def client
-    Octokit::Client.new(:netrc => true)
+    client = Octokit::Client.new \
+    :client_id     => ENV["GITHUB_ID"],
+    :client_secret => ENV["GITHUB_SECRET"]
   end
 
-  def starred(user=false, entries=10)
-    user ||= client
-    user.starred.take(entries)
+  def get_starred(user=false, entries=10)
+    client.starred(user)
   end
 
   def all_starred(user=false)
     print user
     Octokit.auto_paginate = true
-    user.starred
+
+    get_starred(user)
   end
 
   def contributors(repo=false)
-    repo ||= starred.first
+    repo ||= get_starred.first
     get_data(repo, :contributors)
   end
 
