@@ -9,11 +9,11 @@
   "author": "Kingsley Kelly",
   "license": "BSD-2-Clause",
     "dependencies": {
-      "bower": "~1.3.2"
+      "bower": "~1.3.2",
     },
     "engine": {
       "node": "0.10.x",
-      "npm": "1.3.11"
+      "npm": "1.3.x"
     },
     "scripts": {
       "postinstall": "./node_modules/bower/bin/bower install"
