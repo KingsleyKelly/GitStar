@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'delayed_job_active_record'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-
+gem 'rails_serve_static_assets', group: [:production]
 gem 'therubyracer'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
