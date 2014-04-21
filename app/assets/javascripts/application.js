@@ -25,5 +25,6 @@
 //= require ui-bootstrap-tpls
 //= require angular-ui-router
 //= require moment
+//= require require
 //= require app
 //= require star_posts
