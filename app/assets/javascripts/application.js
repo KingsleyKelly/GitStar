@@ -13,7 +13,6 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require moment
 //= require require
 //= require angular
 //= require angular-resource
