@@ -1,5 +1,6 @@
 require 'client'
 class User < ActiveRecord::Base
+  include Authentication::ActiveRecordHelpers
   has_many :stars
   has_many :star_posts, through: :stars
   # Include default devise modules. Others available are:
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  include Authentication::ActiveRecordHelpers
+
   include Client
   def create_star_posts_for_user
 
@@ -38,5 +39,5 @@ class User < ActiveRecord::Base
       puts Time.now - time
     end
   end
-  handle_asynchronously :create_star_posts_for_user, :run_at => Proc.new { 20.seconds.from_now }
+  handle_asynchronously :create_star_posts_for_user, :run_at => Proc.new { 5.seconds.from_now }
 end

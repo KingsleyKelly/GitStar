@@ -11,10 +11,10 @@
 // about supported directives.
 //
 
+//= require moment
 //= require require
 //= require jquery
 //= require jquery_ujs
-
 //= require angular
 //= require angular-resource
 //= require bootstrap
@@ -26,6 +26,5 @@
 //= require ui-bootstrap
 //= require ui-bootstrap-tpls
 //= require angular-ui-router
-
 //= require app
 //= require star_posts

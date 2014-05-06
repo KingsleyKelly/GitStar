@@ -1,13 +1,46 @@
 <% unless current_user %>
-  <%= link_to 'Sign in with Github', user_omniauth_authorize_path(:github) %>
+  <div class="container">
+    <div class="row">
+    <%= link_to 'Sign_in', new_user_session_path %>
+    </div>
+    <div class="row">
+      <button class="btn-lg btn-primary "><%= link_to 'Sign up with Github', user_omniauth_authorize_path(:github), class: "white-font" %></button>
+    </div>
+    </div>
+  </div>
 <% else %>
   <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
-<% end %>
+
 <div ng-cloak ng-controller="starPostController" class="container">
   <div class="row">
-    <input ng-model="name_filter" class="form-control" placeholder="Search for names here!" autofocus="autofocus">
 
+    <div class="col-md-10">
+      <div class="col-md-4">
+      <div class="col-md-7"><input type="text" ng-model="user" value=""></div>
+      <div class="col-md-4"><button class="btn btn-sm btn-default" ng-click="get_user()"> Update stars + </button></div>
 
+    </div>
+    <div class="col-md-2">
+      <input ng-model="name_filter" class="form-control glyphicon" type="search" placeholder="&#57347;" autofocus="autofocus">
+    </div>
+
+    <div class="col-md-2">
+      <select ng-model="language_filter" ng-options="l as l.language for l in languages">
+
+        <option value="">-- Any Language --</option>
+      </select>
+
+    </div>
+    <div class="col-md-3">
+        <a><span ng-click="item_order = 'star'" class="right-space glyphicon glyphicon-star"> Popular</span></a>
+        <a><span ng-click="item_order = 'created_at'"class="grey glyphicon glyphicon-refresh"> New</span></a>
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-sm btn-default" ng-click="reverse= reverse ? false : 'reverse';">
+        <span class="glyphicon glyphicon-sort"></span>
+      </button>
+    </div>
+  </div>
 
     <div class="col-md-4">
 
@@ -16,7 +49,7 @@
       <div >
 
 
-        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | orderBy : name | filter : {name : name_filter}" ng-animate='animate'>
+        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | filter : {name: name_filter} | filter : language_filter | orderBy: item_order: reverse |limitTo:20" ng-animate='animate'>
           <div class="col-md-3">
           </div>
           <div class="col-md-9" ng-style='{"border-left" :"2px solid " + backColor(star.language)}'>
@@ -55,3 +88,4 @@
     </div>
   </div>
 </div>
+<% end %>

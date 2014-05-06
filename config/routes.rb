@@ -3,7 +3,9 @@ GitstarAng::Application.routes.draw do
   resources :star_posts
   # get '/stars/:id' => 'star_posts#stars'
   get '/stars' => 'star_posts#stars'
+  get '/stars/:user' => 'star_posts#get_user_stars'
   root 'star_posts#index'
+  post '/new_stars' => 'star_posts#new_stars'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
