@@ -2,14 +2,19 @@ class StarPostsController < ApplicationController
 
 
   def stars
-    p params
+    p 1
+
     if params[:user]
+      p 2
       if User.find_by_github_username(params[:user])
           user = User.find_by_github_username(params[:user])
           user.create_star_posts_for_user
       else
-        p 'sup'
-        User.create!(:email => SecureRandom.hex(16).to_s + "@google.com" , :password => SecureRandom.hex, :github_username => params[:user])
+        p 3
+        if User.has_github(params[:user])
+          p 'grep 4'
+          User.create!(:email => SecureRandom.hex(16).to_s + "@google.com" , :password => SecureRandom.hex, :github_username => params[:user])
+        end
       end
     end
     user ||= current_user
@@ -18,13 +23,10 @@ class StarPostsController < ApplicationController
 
   end
 
-  def get_user_stars
-    p 'wooowowoo'
-    p params
-
-    user.create_star_posts_for_user
-    render :json => user.star_posts
+  def get_users
+    render :json => User.all.select{|x| x if x.star_posts.count > 1}.map(&:github_username).uniq
   end
+
   def new_stars
 
     render :nothing

@@ -15,31 +15,40 @@
   <div class="row">
 
     <div class="col-md-10">
-      <div class="col-md-4">
-      <div class="col-md-7"><input type="text" ng-model="user" value=""></div>
-      <div class="col-md-4"><button class="btn btn-sm btn-default" ng-click="get_user()"> Update stars + </button></div>
+      <div class="col-md-1">
+        <button class="btn btn-sm btn-default" ng-click="get_user()">  + </button>
+      </div>
+        <div class="col-md-1">
+          <span class="glyphicon glyphicon-user grey" ng-click="setOrder('users'); selectedOrer('users')" ng-style="selected_order"></span>
+          <span class="glyphicon glyphicon-search grey" ng-click="setOrder('names'); selectedOrder('names')" ng-style="selected_order"></span>
+        </div>
+        <div ng-show="getOrder('users')" ng-hide="getOrder('names')" class="left-inner-addon col-md-3">
 
-    </div>
-    <div class="col-md-2">
-      <input ng-model="name_filter" class="form-control glyphicon" type="search" placeholder="&#57347;" autofocus="autofocus">
-    </div>
+          <span class="glyphicon glyphicon-user grey"></span>
+          <input type="text" ng-model="user"  typeahead="u for u in users | filter : ($viewValue === '*' ? '' : $viewValue)" typeahead-loading="loadingUsers" class="form-control">
+        </div>
 
-    <div class="col-md-2">
-      <select ng-model="language_filter" ng-options="l as l.language for l in languages">
+        <div ng-show="getOrder('names')" ng-hide"getOrder('users')" class="col-md-3" >
 
-        <option value="">-- Any Language --</option>
-      </select>
+          <input type="text" ng-model="name_filter" typeahead="s.name as s.name for s in stars  | filter : {name: $viewValue} | filter : {language : language_filter['language']} | limitTo:8"  class="form-control glyphicon" type="search" placeholder="&#57347;" autofocus="autofocus">
+        </div>
 
-    </div>
-    <div class="col-md-3">
-        <a><span ng-click="item_order = 'star'" class="right-space glyphicon glyphicon-star"> Popular</span></a>
-        <a><span ng-click="item_order = 'created_at'"class="grey glyphicon glyphicon-refresh"> New</span></a>
-    </div>
-    <div class="col-md-1">
-      <button class="btn btn-sm btn-default" ng-click="reverse= reverse ? false : 'reverse';">
-        <span class="glyphicon glyphicon-sort"></span>
-      </button>
-    </div>
+<!--       <div class="col-md-4"><button class="btn btn-sm btn-default" ng-click="get_user()"> Update stars + </button></div> -->
+
+      <div class="col-md-2">
+        <select ng-model="language_filter" ng-options="l as l.language for l in stars | unique : 'language'">
+
+          <option value="">-- Any Language --</option>
+        </select>
+      </div>
+
+
+      <div class="col-md-3">
+          <a><span ng-click="item_order = 'star'" class="right-space glyphicon glyphicon-star"> Popular</span></a>
+          <a><span ng-click="item_order = 'created_at'"class="grey glyphicon glyphicon-refresh"> New</span></a>
+      </div>
+
+
   </div>
 
     <div class="col-md-4">
@@ -49,7 +58,7 @@
       <div >
 
 
-        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | filter : {name: name_filter} | filter : language_filter | orderBy: item_order: reverse |limitTo:20" ng-animate='animate'>
+        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | filter : {name: name_filter} | filter : {language : language_filter['language']} | orderBy: item_order: reverse |limitTo:20" ng-animate='animate'>
           <div class="col-md-3">
           </div>
           <div class="col-md-9" ng-style='{"border-left" :"2px solid " + backColor(star.language)}'>

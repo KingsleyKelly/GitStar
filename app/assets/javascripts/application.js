@@ -25,6 +25,7 @@
 //= require angular-animate
 //= require ui-bootstrap
 //= require ui-bootstrap-tpls
+//= require ui-utils
 //= require angular-ui-router
 //= require app
 //= require star_posts
