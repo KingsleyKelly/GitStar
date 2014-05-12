@@ -19,8 +19,8 @@
         <button class="btn btn-sm btn-default" ng-click="get_user()">  + </button>
       </div>
         <div class="col-md-1">
-          <span class="glyphicon glyphicon-user grey" ng-click="setOrder('users'); selectedOrer('users')" ng-style="selected_order"></span>
-          <span class="glyphicon glyphicon-search grey" ng-click="setOrder('names'); selectedOrder('names')" ng-style="selected_order"></span>
+          <span class="glyphicon glyphicon-user grey icons" ng-click="setOrder('users'); selectedOrder('users')" ng-style="user_selected"></span>
+          <span class="glyphicon glyphicon-search grey icons" ng-click="setOrder('names'); selectedOrder('names')" ng-style="name_selected"></span>
         </div>
         <div ng-show="getOrder('users')" ng-hide="getOrder('names')" class="left-inner-addon col-md-3">
 
@@ -44,8 +44,8 @@
 
 
       <div class="col-md-3">
-          <a><span ng-click="item_order = 'star'" class="right-space glyphicon glyphicon-star"> Popular</span></a>
-          <a><span ng-click="item_order = 'created_at'"class="grey glyphicon glyphicon-refresh"> New</span></a>
+          <a><span ng-click="item_order = 'star'; selectedFilter('star')" class="right-space glyphicon glyphicon-star grey " ng-style="star_selected"> Popular</span></a>
+          <a><span ng-click="item_order = 'created_at'; selectedFilter('new')"class="grey glyphicon glyphicon-refresh" ng-style="new_selected"> New</span></a>
       </div>
 
 

@@ -15,7 +15,7 @@ App.controller("starPostController",  [
     $scope.currentPage = 1;
     $scope.last_update = function(star){return moment(star.updated_at).format("MMMM Do YYYY")}
 
-    $scope.order = 'names';
+    $scope.order = 'users';
     $scope.page = function(list){
       return list.slice(($scope.currentPage-1)*10, $scope.currentPage*10);
     }
@@ -40,6 +40,31 @@ App.controller("starPostController",  [
 
     $scope.setOrder = function(val){
       $scope.order = val;
+    };
+
+    $scope.star_selected = {color:'red'};
+    $scope.user_selected = {color:'red'};
+
+    $scope.selectedOrder = function(val){
+      if (val === 'users'){
+        $scope.user_selected = {color:'red'};
+        $scope.name_selected = {};
+      } else {
+        $scope.user_selected = {};
+        $scope.name_selected = {color:'red'};
+
+      }
+    };
+
+    $scope.selectedFilter = function(val){
+      if (val === 'new'){
+        $scope.new_selected = {color:'red'};
+        $scope.star_selected = {};
+      } else {
+        $scope.new_selected = {};
+        $scope.star_selected = {color:'red'};
+
+      }
     };
 
 }]);
