@@ -22,6 +22,7 @@ gem 'therubyracer'
 gem "awesome_print"
 gem "oj"
 
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'less-rails'
