@@ -13,5 +13,7 @@ rake jobs:work
 ```
 
 You should then create a user with your github name.
+Don't worry about authing the app.
 
+Also set the environment variables GITHUB LOGIN and GITHUB_PASSWORD to auth your requests.
 
