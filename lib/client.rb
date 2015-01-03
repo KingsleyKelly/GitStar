@@ -8,8 +8,8 @@ module Client
 
   def client
     client = Octokit::Client.new \
-    :client_id     => ENV["GITHUB_ID"],
-    :client_secret => ENV["GITHUB_SECRET"]
+    :login    => ENV["GITHUB_LOGIN"],
+    :password => ENV["GITHUB_PASSWORD"]
   end
 
   def get_starred(user=false, entries=10)

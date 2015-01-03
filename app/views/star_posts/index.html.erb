@@ -42,6 +42,7 @@
 
 
         <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | filter : {name: name_filter} | filter : {language : language_filter['language']} | orderBy: item_order: reverse |limitTo:limit" ng-animate='animate'>
+
           <div class="col-md-3">
           </div>
           <div class="col-md-9" ng-style='{"border-left" :"2px solid " + backColor(star.language)}'>
