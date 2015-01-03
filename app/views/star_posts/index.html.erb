@@ -14,38 +14,17 @@
 <div ng-cloak ng-controller="starPostController" class="container">
   <div class="row">
 
-    <div class="col-md-10">
-      <div class="col-md-1">
-        <button class="btn btn-sm btn-default" ng-click="get_user()">  + </button>
-      </div>
-        <div class="col-md-1">
-          <span class="glyphicon glyphicon-user grey icons" ng-click="setOrder('users'); selectedOrder('users')" ng-style="user_selected"></span>
-          <span class="glyphicon glyphicon-search grey icons" ng-click="setOrder('names'); selectedOrder('names')" ng-style="name_selected"></span>
-        </div>
-        <div ng-show="getOrder('users')" ng-hide="getOrder('names')" class="left-inner-addon col-md-3">
-
-          <span class="glyphicon glyphicon-user grey"></span>
-          <input type="text" ng-model="user"  typeahead="u for u in users | filter : ($viewValue === '*' ? '' : $viewValue)" typeahead-loading="loadingUsers" class="form-control">
-        </div>
-
-        <div ng-show="getOrder('names')" ng-hide"getOrder('users')" class="col-md-3" >
-
-          <input type="text" ng-model="name_filter" typeahead="s.name as s.name for s in stars  | filter : {name: $viewValue} | filter : {language : language_filter['language']} | limitTo:8"  class="form-control glyphicon" type="search" placeholder="&#57347;" autofocus="autofocus">
-        </div>
 
 <!--       <div class="col-md-4"><button class="btn btn-sm btn-default" ng-click="get_user()"> Update stars + </button></div> -->
 
       <div class="col-md-2">
-        <select ng-model="language_filter" ng-options="l as l.language for l in stars | unique : 'language'">
-
-          <option value="">-- Any Language --</option>
-        </select>
+        
       </div>
 
 
       <div class="col-md-3">
-          <a><span ng-click="item_order = 'star'; selectedFilter('star')" class="right-space glyphicon glyphicon-star grey " ng-style="star_selected"> Popular</span></a>
-          <a><span ng-click="item_order = 'created_at'; selectedFilter('new')"class="grey glyphicon glyphicon-refresh" ng-style="new_selected"> New</span></a>
+          <a></a>
+          
       </div>
 
 
@@ -54,11 +33,15 @@
     <div class="col-md-4">
 
     </div>
-    <div class="col-md-10">
-      <div >
+    <div class="col-md-12">
+
+        <div class="fixed">
+        <h3>Showing <input ng-model='limit' class=></input> Repos in <select ng-model="language_filter" ng-options="l as l.language for l in stars | unique : 'language'"> <option value="">-- Any Language --</option></select> called <input    ng-model="name_filter" typeahead="s.name as s.name for s in stars  | filter : {name: $viewValue} | filter : {language : language_filter['language']}"   type="search"  autofocus="autofocus"> that are <a><span ng-click="item_order = 'star'; selectedFilter('star')" ng-style="star_selected"> Popular?</span></a> or <a><span ng-click="item_order = 'created_at'; selectedFilter('new')" ng-style="new_selected"> New</span></a></h3> 
+        </div>
+      <div class="push_down">
 
 
-        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | filter : {name: name_filter} | filter : {language : language_filter['language']} | orderBy: item_order: reverse |limitTo:20" ng-animate='animate'>
+        <div class="col-md-6 top-buffer repo" ng-repeat="star in stars | filter : {name: name_filter} | filter : {language : language_filter['language']} | orderBy: item_order: reverse |limitTo:limit" ng-animate='animate'>
           <div class="col-md-3">
           </div>
           <div class="col-md-9" ng-style='{"border-left" :"2px solid " + backColor(star.language)}'>
@@ -96,5 +79,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 <% end %>

@@ -8,13 +8,14 @@ App.controller("starPostController",  [
 
 
     $scope.star_call = function(){ $scope.stars = StarPosts.query() };
+
     $scope.star_call();
     // $scope.star = StarPosts.get({}, {'id':1});
     $scope.totalItems = 100;
     $scope.maxSize = 5;
     $scope.currentPage = 1;
     $scope.last_update = function(star){return moment(star.updated_at).format("MMMM Do YYYY")}
-
+    $scope.limit = 50
     $scope.order = 'users';
     $scope.page = function(list){
       return list.slice(($scope.currentPage-1)*10, $scope.currentPage*10);
