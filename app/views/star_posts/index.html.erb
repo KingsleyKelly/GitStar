@@ -1,15 +1,5 @@
-<% unless current_user %>
-  <div class="container">
-    <div class="row">
-    <%= link_to 'Sign_in', new_user_session_path %>
-    </div>
-    <div class="row">
-      <button class="btn-lg btn-primary "><%= link_to 'Sign up with Github', user_omniauth_authorize_path(:github), class: "white-font" %></button>
-    </div>
-    </div>
-  </div>
-<% else %>
-  <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+
+
 
 <div ng-cloak ng-controller="starPostController" class="container">
   <div class="row">
@@ -82,4 +72,4 @@
   </div>
 </div>
 </div>
-<% end %>
+
